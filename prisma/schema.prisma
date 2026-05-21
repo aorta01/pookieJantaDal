@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Member {
+  id          String        @id @default(cuid())
+  fullName    String
+  email       String
+  phone       String
+  age         Int?
+  city        String?
+  profession  String?
+  category    String?
+  state       String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  certificate Certificate?
+
+  @@index([email])
+  @@index([phone])
+}
+
+model Certificate {
+  id              String   @id @default(cuid())
+  certificateCode String   @unique
+  memberId        String   @unique
+  issuedName      String
+  issuedAt        DateTime @default(now())
+  displayDate     String
+  status          String   @default("ISSUED")
+  manifesto       String   @default("PJD-8-DEMANDS-2026")
+  signedBy        String   @default("Kaushal, Founder")
+  member          Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@index([issuedAt])
+}

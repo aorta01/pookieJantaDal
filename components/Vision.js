@@ -66,26 +66,30 @@ export default function Vision() {
           <p>This is not a club. It is not a fan page. It is a movement — and it has rules about who carries it forward.</p>
         </div>
 
-        <div className="elig-cards">
-          {eligibility.map((card, index) => {
-            const isOpen = openCard === card.n;
-            return (
-              <button
-                key={card.n}
-                className={`elig-card rv ${index ? `d${index}` : ""} ${isOpen ? "open" : ""}`}
-                type="button"
-                onClick={() => setOpenCard(isOpen ? null : card.n)}
-              >
-                <div className="elig-num">{card.n}</div>
-                <h3 className="elig-card-title">{card.title}</h3>
-                <p className="elig-card-pre">{card.preview}</p>
-                <span className="elig-card-tog">{isOpen ? "Close ↑" : "Read More ↓"}</span>
-                <div className="elig-card-full">{card.full}</div>
-              </button>
-            );
-          })}
-        </div>
-
+          <div className="elig-cards">
+            {eligibility.map((card, index) => {
+              const isOpen = openCard === card.n;
+              return (
+                <div 
+                  key={card.n} 
+                  className={`rv ${index ? `d${index}` : ""}`}
+                  style={{ display: "contents" }}
+                >
+                  <button
+                    className={`elig-card ${isOpen ? "open" : ""}`}
+                    type="button"
+                    onClick={() => setOpenCard(isOpen ? null : card.n)}
+                  >
+                    <div className="elig-num">{card.n}</div>
+                    <h3 className="elig-card-title">{card.title}</h3>
+                    <p className="elig-card-pre">{card.preview}</p>
+                    <span className="elig-card-tog">{isOpen ? "Close ↑" : "Read More ↓"}</span>
+                    <div className="elig-card-full">{card.full}</div>
+                  </button>
+                </div>
+              );
+            })}
+          </div>
         <div className="elig-cta-wrap rv d2">
           <a href="#join" className="btn-primary">
             <span>Join Pookie Janta Dal — Be The Change</span>

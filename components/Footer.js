@@ -42,15 +42,15 @@ export default function Footer() {
 
           <div className="f-col">
             <span className="f-col-l">Follow</span>
-            <a href="https://instagram.com/pookiejantadal" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/pookiejantadal" target="_blank" rel="noreferrer">
               Instagram — @pookiejantadal
             </a>
-            <a href="https://x.com/pookiejantadal" target="_blank" rel="noreferrer">
+            <a href="https://x.com/Pookiejantadal" target="_blank" rel="noreferrer">
               X (Twitter) — @pookiejantadal
             </a>
-            <a href="https://youtube.com/@pookiejantadal" target="_blank" rel="noreferrer">
+            {/* <a href="https://youtube.com/@pookiejantadal" target="_blank" rel="noreferrer">
               YouTube — @pookiejantadal
-            </a>
+            </a> */}
             {/* <button className="footer-link" type="button" onClick={() => setIsModalOpen(true)}>
               WhatsApp Community
             </button> */}
